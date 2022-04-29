@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class BoardController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	MemberVO memberVO;
+	ArticleVO articleVO;
 	
 
     public BoardController() {
@@ -24,6 +25,7 @@ public class BoardController extends HttpServlet {
 
 	public void init(ServletConfig config) throws ServletException {
 		memberVO = new MemberVO();
+		articleVO = new ArticleVO();
 	}
 
 	
