@@ -72,21 +72,4 @@ public class BoardDAO {
 		
 		return articlesList;
 	}
-	
-//	
-//	public List CreateMember() {
-//		
-//	}
-//	
-//	public List ReadMember() {
-//		
-//	}
-//	
-//	public List UpdateMember() {
-//		
-//	}
-//	
-//	public List DeleteMember() {
-//		
-//	}
 }

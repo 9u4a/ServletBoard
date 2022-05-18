@@ -83,12 +83,12 @@ public class MemberDAO {
 		
 	}
 	
-	public void deleteMember(MemberVO memberVO) {
+	public void deleteMember(String id) {
 		try {
 			conn = dataFactory.getConnection();
 			String query = "DELETE FROM S_USER WHERE user_ID=?";
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1,memberVO.getUser_ID());
+			pstmt.setString(1,id);
 			pstmt.executeUpdate();
 			pstmt.close();
 			conn.close();

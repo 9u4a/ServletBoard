@@ -48,11 +48,13 @@ public class BoardController extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");
 		HttpSession session;
 		String action = request.getPathInfo();
+		MemberVO memberVO = new MemberVO();
 		
-		try {
-				//임시 createMember
+		try{
+			if(action == null || action.equals("main")) {
+				nextPage = "/board/main.jsp";
+			}
 			if(action.equals("/sign.do")) {
-				MemberVO memberVO = new MemberVO();
 				memberVO.setUser_ID(request.getParameter("id"));
 				memberVO.setUser_Pw(request.getParameter("pw"));
 				memberVO.setUser_Name(request.getParameter("name"));
@@ -61,23 +63,27 @@ public class BoardController extends HttpServlet {
 				request.setAttribute("createMember", "createMember");
 				nextPage = "/board/main.do";
 				
-				//임시 updateMemberForm
+				
 			} else if(action.equals("/updateMemberForm.do")) {
 				String id = request.getParameter("id");
 				MemberVO findMem = memberDAO.findMember(id);
 				request.setAttribute("findMem", findMem);
 				
-				//임시 updateMember
+				
 			} else if(action.equals("/updateMember.do")) {
-				MemberVO memberVO = new MemberVO();
 				memberVO.setUser_ID(request.getParameter("id"));
 				memberVO.setUser_Pw(request.getParameter("pw"));
 				memberVO.setUser_Name(request.getParameter("name"));
 				memberVO.setUser_Email(request.getParameter("email"));
 				memberDAO.createMember(memberVO);
-				request.setAttribute("createMember", "createMember");
+				request.setAttribute("updateMember", "updateMember");
 				nextPage = "/board/main.do";
 				
+			} else if(action.equals("/deleteMember.do")) {
+				String id = request.getParameter("id");
+				memberDAO.deleteMember(id);
+				request.setAttribute("deleteMember", "deleteMember");
+				nextPage = "/board/main.do";
 			} 
 		} catch (Exception e) {
 			e.printStackTrace();
