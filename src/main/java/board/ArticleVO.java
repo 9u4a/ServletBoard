@@ -69,26 +69,6 @@ public class ArticleVO {
 		this.category = category;
 	}
 
-	public String getImage() {
-		try {
-			if (image != null && image.length() != 0) {
-				image = URLDecoder.decode(image, "UTF-8");
-			}
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-		return image;
-	}
-
-	public void setImage(String image) {
-		try {
-			if(image !=null && image.length()!=0) {
-				this.image = URLEncoder.encode(image, "UTF-8");  //파일이름에 특수문자가 있을 경우 인코딩합니다.
-			}
-		} catch (UnsupportedEncodingException e) {
-			e.printStackTrace();
-		}
-	}
 
 	public Date getWriteDate() {
 		return writeDate;

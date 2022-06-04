@@ -18,9 +18,9 @@ import javax.servlet.http.HttpSession;
 public class BoardController extends HttpServlet {
 	private static String ARTICLE_IMAGE = "C:\\board\\image";
 	private static final long serialVersionUID = 1L;
-	BoardService boardService;
-	ArticleVO articleVO;
 	MemberDAO memberDAO;
+	ArticleVO articleVO;
+	BoardDAO boardDAO;
 	
 
     public BoardController() {
@@ -29,7 +29,7 @@ public class BoardController extends HttpServlet {
 
 
 	public void init(ServletConfig config) throws ServletException {
-		boardService = new BoardService();
+		boardDAO = new BoardDAO();
 		memberDAO = new MemberDAO();
 		articleVO = new ArticleVO();
 	}
@@ -84,6 +84,7 @@ public class BoardController extends HttpServlet {
 				memberDAO.deleteMember(id);
 				request.setAttribute("deleteMember", "deleteMember");
 				nextPage = "/board/main.do";
+				
 			} 
 		} catch (Exception e) {
 			e.printStackTrace();
