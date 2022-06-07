@@ -10,39 +10,34 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
-<style>
-  .cls1 {
-     font-size:40px;
-     text-align:center;
-   }
-</style>
+<title>ReadMember</title>
 </head>
 <body>
-	<h1 class="cls1">회원 정보 수정창</h1>
-<form  method="post" action="${contextPath}/member/updateMember.do">
+<h1 style="text-align:center">회원 정보 수정창</h1>
+<form  method="post" action="${contextPath}/member/main">
  <table align="center" >
    <tr>
      <td width="200"><p align="right" >아이디</td>
-     <td width="400"><input   type="text" name="id" value="${findMem.user_ID}" disabled ></td>
+     <td width="400"><input type="text" value="${findMem.user_ID}" disabled></td>
      
    </tr>
  <tr>
      <td width="200"><p align="right" >비밀번호</td>
-     <td width="400"><input   type="password" name="pwd" value="${findMem.user_Pw}" >
-     </td>
+     <td width="400"><input type="text" value="${findMem.user_Pw}" disabled></td>
    </tr>
    <tr>
      <td width="200"><p align="right" >이름</td>
-     <td width="400"><input   type="text" name="name" value="${findMem.user_Name}" ></td>
+     <td width="400"><input type="text" value="${findMem.user_Name}" disabled></td>
    </tr>
    <tr>
      <td width="200"><p align="right" >이메일</td>
-     <td width="400"><input   type="text" name="email"  value="${findMem.user_Email}" ></td>
+     <td width="400"><input type="text" value="${findMem.user_Email}" disabled></td>
    </tr>
-   <tr align="center" >
-    <td colspan="2" width="400"><input type="submit" value="수정하기" >
-       <input type="reset" value="다시입력" > </td>
+   <tr>
+    <td width="200"><p>&nbsp;</p></td>
+    <td width="400">
+    	<input type="submit" value="메인으로" >
+    </td>
    </tr>
  </table>
 </form>

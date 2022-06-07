@@ -29,8 +29,9 @@ public class MemberDAO {
 			String query = "SELECT user_ID,user_Pw FROM s_member WHERE user_ID=? and user_Pw=?";
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, memberVO.getUser_ID());
-			pstmt.setString(1, memberVO.getUser_Pw());
+			pstmt.setString(2, memberVO.getUser_Pw());
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			String id = rs.getString("user_ID");
 			String pwd = rs.getString("user_Pw");
 			
@@ -55,6 +56,7 @@ public class MemberDAO {
 			pstmt = conn.prepareStatement(query);
 			pstmt.setString(1, findID);
 			ResultSet rs = pstmt.executeQuery();
+			rs.next();
 			String id = rs.getString("user_ID");
 			String pwd = rs.getString("user_Pw");
 			String name = rs.getString("user_Name");
@@ -117,15 +119,14 @@ public class MemberDAO {
 	public void deleteMember(String id) {
 		try {
 			conn = dataFactory.getConnection();
-			String query = "DELETE FROM s_member WHERE user_ID=?";
+			String query = "DELETE s_member WHERE user_ID=?";
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1,id);
+			pstmt.setString(1, id);
 			pstmt.executeUpdate();
 			pstmt.close();
-			conn.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-}
 
+}

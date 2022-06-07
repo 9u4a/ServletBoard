@@ -2,7 +2,10 @@
     pageEncoding="EUC-KR"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>    
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<c:set var="contextPath" value="${pageContext.request.contextPath}"  />     
+<c:set var="contextPath" value="${pageContext.request.contextPath}"  />
+<%
+  request.setCharacterEncoding("UTF-8");
+%>      
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,14 +23,6 @@
     <tr>
         <td width="200"><p align="right">비밀번호</td>
         <td width="400"><input type="password"  name="pwd"></td>
-    </tr>
-    <tr>
-        <td width="200"><p align="right">이름</td>
-        <td width="400"><p><input type="text"  name="name"></td>
-    </tr>
-    <tr>
-        <td width="200"><p align="right">이메일</td>
-        <td width="400"><p><input type="text"  name="email"></td>
     </tr>
     <tr>
         <td width="200"><p>&nbsp;</p></td>

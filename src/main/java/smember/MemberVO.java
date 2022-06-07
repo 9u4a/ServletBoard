@@ -9,6 +9,11 @@ public class MemberVO {
 	public MemberVO(){
 	
 	}
+	public MemberVO(String user_ID, String user_Pw) {
+		super();
+		this.user_ID = user_ID;
+		this.user_Pw = user_Pw;
+	}
 	public MemberVO(String user_ID, String user_Pw, String user_Name, String user_Email) {
 		super();
 		this.user_ID = user_ID;
